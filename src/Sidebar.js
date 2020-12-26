@@ -11,8 +11,11 @@ import { Avatar } from "@material-ui/core";
 import MicIcon from "@material-ui/icons/Mic";
 import HeadsetIcon from "@material-ui/icons/Headset";
 import SettingsIcon from "@material-ui/icons/Settings";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 
 function Sidebar() {
+  const user = useSelector(selectUser);
   return (
     <div className="sidebar">
       <div className="sidebar__top">
@@ -58,7 +61,7 @@ function Sidebar() {
       </div>
 
       <div className="sidebar__profile">
-        <Avatar src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/116238077_10217810896850264_9062144719825589748_n.jpg?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=QBQFMJEvZu0AX9OMg12&_nc_oc=AQmZN0qk3y8L5Upd5M-ALiZHcoXsooKv_JWEp3fX5kz1insPPz8vmgNFxc3zSK9cZpj5zSv_M_sD9leR4CWuLdIP&_nc_ht=scontent-iad3-1.xx&oh=dc48f070f88e3e9817a042487d00a4ac&oe=600E547D" />
+        <Avatar src={user.photo} />
         <div className="sidebar__profileInfo">
           <h3>@sungw5</h3>
           <p>#thisismyid</p>
